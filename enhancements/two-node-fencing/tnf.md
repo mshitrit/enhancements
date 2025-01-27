@@ -125,7 +125,7 @@ Upon rebooting, the RHEL-HA components ensure that a node remains inert (not run
 If the failed peer is likely to remain offline for an extended period, admin confirmation is required on the remaining node to allow it to start OpenShift.
 This functionality exists within RHEL-HA, but a wrapper will be provided to take care of the details.
 
-When starting etcd, the OCF script will use etcd's cluster ID and version counter to determine whether the existing data directory can be reused, or must be erased before joining an active peer.
+When starting etcd, the OCF script will use data on disk (e.g. etcd's cluster ID) and the current state of the cluster (e.g. which resource agent is already running) to determine whether the existing data directory can be reused, or must be erased before joining an active peer.
 
 
 ### Summary of Changes
